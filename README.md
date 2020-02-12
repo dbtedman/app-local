@@ -1,7 +1,6 @@
-
 # [App Local](https://github.com/dbtedman/app-local)
 
-> No longer actively maintained.
+[![GitHub Actions](https://github.com/dbtedman/app-local/workflows/Test/badge.svg)](https://github.com/dbtedman/app-local/actions?workflow=Test)
 
 Provides a repeatable local development environment that matches an app server infrastructure, associated databases, and services.
 
@@ -67,7 +66,7 @@ cd $REPO && bundle exec r10k puppetfile install --verbose
 #
 # Customize the PHP version. (Experimental)
 #
-php: '56'
+php: "56"
 
 #
 # Enable OracleXE install and setup. (Experimental)
@@ -77,12 +76,12 @@ enable_oracle_xe: false
 #
 # OracleDB root password.
 #
-xe_root_password: ''
+xe_root_password: ""
 
 #
 # File name for rpm zip downloaded from Oracle website.
 #
-xe_zip: 'oracle-xe-??????.x86_64.rpm.zip'
+xe_zip: "oracle-xe-??????.x86_64.rpm.zip"
 
 #
 # Enable or disable server spec acceptance tests.
@@ -97,24 +96,24 @@ virtualbox_memory: 4096
 #
 # SSO Demo Data. Update these to emulate a different user or a user with different access.
 #
-sso_dummy_staff_number: 's123456'
-sso_dummy_given_name: 'Jane'
-sso_dummy_family_name: 'Doe'
-sso_dummy_email: 'jane.doe@example.com'
+sso_dummy_staff_number: "s123456"
+sso_dummy_given_name: "Jane"
+sso_dummy_family_name: "Doe"
+sso_dummy_email: "jane.doe@example.com"
 sso_dummy_group_memberships:
-  - 'cn=General Staff (All),ou=Groups,o=Griffith University'
-  - 'cn=Staff (NA),ou=Groups,o=Griffith University'
+    - "cn=General Staff (All),ou=Groups,o=Griffith University"
+    - "cn=Staff (NA),ou=Groups,o=Griffith University"
 sso_dummy_affiliations:
-  - 'EMPLOYEE'
-  - 'GENERAL'
+    - "EMPLOYEE"
+    - "GENERAL"
 
 #
 # Used to customise which ports are mapped to on a developers workstation.
 #
 listen_ports:
-  https: 8443
-  mysql: 8306
-  xe: 8521 # OracleXE database.
+    https: 8443
+    mysql: 8306
+    xe: 8521 # OracleXE database.
 
 #
 # Set to true if you get ssh auth errors when provisioning vm. This will stop vagrant from trying to
@@ -125,9 +124,9 @@ disable_ssh_key_insert: false
 #
 # RPM files downloaded in dependencies instructions, add just the file names here not their full path.
 #
-oracle_instantclient_basic: 'oracle-instantclient12.1-basic-??????.x86_64.rpm'
-oracle_instantclient_development: 'oracle-instantclient12.1-devel-??????.x86_64.rpm'
-oracle_instantclient_sqlplus: 'oracle-instantclient12.1-sqlplus-??????.x86_64.rpm'
+oracle_instantclient_basic: "oracle-instantclient12.1-basic-??????.x86_64.rpm"
+oracle_instantclient_development: "oracle-instantclient12.1-devel-??????.x86_64.rpm"
+oracle_instantclient_sqlplus: "oracle-instantclient12.1-sqlplus-??????.x86_64.rpm"
 
 #
 # MySQL database configuration.
@@ -136,15 +135,15 @@ oracle_instantclient_sqlplus: 'oracle-instantclient12.1-sqlplus-??????.x86_64.rp
 # The 'testuser' key is the username being created, change this to change the username being created.
 #
 mysql:
-  root_password: 'password'
+    root_password: "password"
 
-  databases:
-    testdb:
-      users:
-        testuser:
-          password: 'password'
-          grants:
-            - 'ALL'
+    databases:
+        testdb:
+            users:
+                testuser:
+                    password: "password"
+                    grants:
+                        - "ALL"
 
 #
 # Defines which repositories will be mapped into the VM and how.
@@ -155,18 +154,18 @@ mysql:
 # code as it will appear in the vm. It uses '/' here even if source is on Windows.
 #
 projects:
-  example:
-    source: '/Users/jane/Workspace/example'
-    public: '/public'
+    example:
+        source: "/Users/jane/Workspace/example"
+        public: "/public"
 ```
 
 ### 8\. Download [Oracle InstantClient (.rpm) Files](http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html) **basic**, **devel** and **sqlplus** into the `$REPO/app_modules/app_local/files` directory. The names of these files will need to be added to the `$REPO/heria/developer.yaml` config file for `oracle_instantclient_basic`, `oracle_instantclient_development` and `oracle_instantclient_sqlplus` properties.
 
 ```yaml
 # Example based on instant client version at time of writing these instructions, the current version may be different.
-oracle_instantclient_basic: 'oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm'
-oracle_instantclient_development: 'oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm'
-oracle_instantclient_sqlplus: 'oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm'
+oracle_instantclient_basic: "oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm"
+oracle_instantclient_development: "oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm"
+oracle_instantclient_sqlplus: "oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm"
 ```
 
 ### 9\. Download [Oracle Database Express Edition 11g Release 2 for Linux x64](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html) into the `$REPO/app_modules/app_local/files` directory. The name will need to be added to the `$REPO/heria/developer.yaml` config file for `xe_zip` property.
@@ -175,7 +174,7 @@ oracle_instantclient_sqlplus: 'oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86
 
 ```yaml
 # Example based on instant client version at time of writing these instructions, the current version may be different.
-xe_zip: 'oracle-xe-11.2.0-1.0.x86_64.rpm.zip'
+xe_zip: "oracle-xe-11.2.0-1.0.x86_64.rpm.zip"
 ```
 
 ### 10\. Update the `$REPO/heria/developer.yaml` file, `projects` section to map projects in your workspace into the VM.
@@ -184,12 +183,12 @@ xe_zip: 'oracle-xe-11.2.0-1.0.x86_64.rpm.zip'
 
 ```yaml
 projects:
-  apples:
-    source: 'D:\Workspace\apples-git'
-    public: '/public/'
+    apples:
+        source: 'D:\Workspace\apples-git'
+        public: "/public/"
 ```
 
-> In the above example, the key `apples` will be used to create the URL `https://localhost:8443/apples/` which will read files from the `/public/` subdirectory of the `D:\Workspace\apples-git` source directory on your workstation. For example, `https://localhost:8443/apples/about.txt` will return the contents of the `D:\Workspace\apples-git\public\about.txt` file. Slashes ` \ ` or ` / ` in the source property are based on your workstation operating system, however the public path will always use ` / ` slashes.
+> In the above example, the key `apples` will be used to create the URL `https://localhost:8443/apples/` which will read files from the `/public/` subdirectory of the `D:\Workspace\apples-git` source directory on your workstation. For example, `https://localhost:8443/apples/about.txt` will return the contents of the `D:\Workspace\apples-git\public\about.txt` file. Slashes `\` or `/` in the source property are based on your workstation operating system, however the public path will always use `/` slashes.
 
 ### 11\. Start and provision the virtual machine.
 
@@ -206,17 +205,14 @@ cd $REPO && vagrant up --provision
 ```yaml
 # Example configuration, your port mappings may be configured differently.
 listen_ports:
-  https: 8443
-  mysql: 8306
-  xe: 8521 # OracleXE database.
+    https: 8443
+    mysql: 8306
+    xe: 8521 # OracleXE database.
 ```
 
 ## Want to lean more?
 
-See our [Contributing Guide](CONTRIBUTING.md) for details on how the sausage is made.
-
-## Who built it?
-
-Created [Down Under](https://en.wikipedia.org/wiki/Australia) by [Daniel Tedman](https://danieltedman.com).
-
-[![Australia](https://danieltedman.com/images/Australia.png)](https://en.wikipedia.org/wiki/Australia)
+-   See our [Contributing Guide](CONTRIBUTING.md) for details on how this repository is developed.
+-   See our [Changelog](CHANGELOG.md) for details on which features, improvements, and bug fixes have been implemented
+-   See our [License](LICENSE.md) for details on how you can use the code in this repository.
+-   See our [Security Guide](SECURITY.md) for details on how security is considered.

@@ -1,6 +1,8 @@
+#-------------------------------------------------------------------------------
 #
 # Git Ignore Config, https://git-scm.com/docs/gitignore.
 #
+#-------------------------------------------------------------------------------
 
 # Keep files, allows for empty directories in git.
 !.keep
@@ -22,3 +24,5 @@
 
 # IDE files, just in case they are not excluded elsewhere.
 /.idea/
+
+/node_modules/

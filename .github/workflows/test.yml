@@ -1,0 +1,44 @@
+#-------------------------------------------------------------------------------
+#
+# GitHub Actions Test Configuration
+#
+#-------------------------------------------------------------------------------
+---
+name: "Test"
+
+on:
+  schedule:
+    # 11pm UTC (9am Brisbane)
+    - cron: "0 23 * * *"
+  pull_request: {}
+  push:
+    branches:
+      - "master"
+
+env:
+  CI: true
+
+jobs:
+  test:
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - uses: "actions/checkout@v1"
+
+      - uses: "actions/setup-node@v1"
+        with:
+          node-version: "12.x"
+
+      - uses: "actions/setup-ruby@v1"
+        with:
+          ruby-version: "2.7.0"
+
+      - run: "yarn install --no-audit"
+
+      - run: "bundle"
+
+      - run: "yarn lint"
+
+      - run: "bundle exec rubocop"
+
+      - run: "bundle exec puppet-lint app_modules/"

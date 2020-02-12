@@ -53,6 +53,7 @@ class app_local::components::apache_php {
     user          => 'vagrant',
     group         => 'vagrant',
     sendfile      => 'Off', # https://www.vagrantup.com/docs/synced-folders/virtualbox.html
+    mpm_module    => 'prefork',
   }
 
   file { $app_root:
@@ -151,7 +152,7 @@ class app_local::components::apache_php {
     package_ensure => 'installed',
     require        => [
       Package['epel-release-7-7.noarch'],
-      Package['webtatic-release-7-3.noarch']
+      Package['webtatic-release-7-3.noarch'],
     ],
   }
 
