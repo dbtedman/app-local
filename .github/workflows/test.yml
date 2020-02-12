@@ -38,3 +38,7 @@ jobs:
       - run: "bundle"
 
       - run: "yarn lint"
+
+      - run: "bundle exec rubocop"
+
+      - run: "bundle exec puppet-lint app_modules/"
