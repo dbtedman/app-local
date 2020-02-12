@@ -1,5 +1,7 @@
 # [App Local](https://github.com/dbtedman/app-local)
 
+[![GitHub Actions](https://github.com/dbtedman/app-local/workflows/Test/badge.svg)](https://github.com/dbtedman/app-local/actions?workflow=Test)
+
 Provides a repeatable local development environment that matches an app server infrastructure, associated databases, and services.
 
 ## Where do I start?
