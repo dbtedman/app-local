@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------------------------------
+#
+# Auto Format
+#
+#-------------------------------------------------------------------------------
+
+DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+DIR_ROOT="${DIR/\/bin/}"
+DIR_CURRENT=$(pwd)
+
+cd "${DIR}" || exit
+source "./_functions"
+
+cd "${DIR_ROOT}" || exit
+
+ensure yarn format
+ensure bundle exec rubocop --auto-correct
+ensure bundle exec puppet-lint app_modules/ --fix
+
+cd "${DIR_CURRENT}" || exit

@@ -1,11 +1,13 @@
+#-------------------------------------------------------------------------------
 #
 # Hiera Base Configuration, https://docs.puppet.com/hiera.
 #
+#-------------------------------------------------------------------------------
+---
 :backends:
-    - yaml
+  - yaml
 :yaml:
-    :datadir: /vagrant/hiera
+  :datadir: /vagrant/hiera
 :hierarchy:
-    - developer
-:logger:
-    puppet
+  - developer
+:logger: puppet

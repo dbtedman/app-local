@@ -1,0 +1,13 @@
+{
+  "name": "app-local",
+  "private": true,
+  "scripts": {
+    "_prettier": "prettier './**/*.{md,yml,yaml,json,js}'",
+    "format": "yarn _prettier --write",
+    "lint": "yarn _prettier --check"
+  },
+  "devDependencies": {
+    "husky": "4.2.2",
+    "prettier": "1.19.1"
+  }
+}

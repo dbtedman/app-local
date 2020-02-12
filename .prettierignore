@@ -1,0 +1,20 @@
+#-------------------------------------------------------------------------------
+#
+# Prettier Ignores, https://prettier.io/docs/en/ignore.html
+#
+#-------------------------------------------------------------------------------
+
+# Testing
+/acceptance/fixtures/
+
+# Dependencies
+/node_modules/
+/modules/
+
+# Generated
+/package-lock.json
+/.nyc_output/
+/.vagrant/
+
+# Build
+/build/
